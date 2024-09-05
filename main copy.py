@@ -100,14 +100,12 @@ def start_transcription():
         try:
             now = datetime.utcnow()
             if not data_queue.empty():
-                # TODO#6 - Define the source (microphone) and configure transcription settings
                 phrase_complete = False
                 # Check if enough time has passed between phrases to complete a transcription segment
                 if phrase_time and now - phrase_time > timedelta(seconds=args.phrase_timeout):
                     phrase_complete = True
                 phrase_time = now
 
-                # TODO#7 - Process the audio data for transcription
                 # Here, you will convert the raw audio into a format suitable for Whisper and perform transcription.
 
                 # Clear the queue and process the audio data for transcription
@@ -119,7 +117,6 @@ def start_transcription():
                 result = audio_model.transcribe(audio_np, fp16=torch.cuda.is_available())
                 text = result['text'].strip()
 
-                # TODO#8 - Emit transcription to the frontend via SocketIO
                 # Based on whether the phrase is complete, either append the text or update the last segment
 
                 # Send the transcribed text to the frontend and update the displayed transcription
