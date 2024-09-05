@@ -100,6 +100,7 @@ def start_transcription():
         try:
             now = datetime.utcnow()
             if not data_queue.empty():
+                # TODO#8 - Process the audio data for transcription
                 phrase_complete = False
                 # Check if enough time has passed between phrases to complete a transcription segment
                 if phrase_time and now - phrase_time > timedelta(seconds=args.phrase_timeout):
@@ -111,7 +112,8 @@ def start_transcription():
                 # Clear the queue and process the audio data for transcription
                 audio_data = b''.join(data_queue.queue)
                 data_queue.queue.clear()
-
+                
+                # TODO#9 - Transcribe the audio and send the result to the frontend via SocketIO
                 # Convert the audio bytes to a NumPy array for processing.
                 audio_np = np.frombuffer(audio_data, dtype=np.int16).astype(np.float32) / 32768.0
                 result = audio_model.transcribe(audio_np, fp16=torch.cuda.is_available())
