@@ -3,5 +3,5 @@
 sample_audio/transcriptions
 templates/index.bak.1.html
 templates/index.bak.2.html
-./main copy.py
-./main_1.py
+main\ copy.py
+main_1.py
