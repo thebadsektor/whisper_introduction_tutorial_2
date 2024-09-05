@@ -24,8 +24,8 @@ def index():
 
 # TODO#2 - Set up variables for audio capture and transcription
 
-# TODO#3 - Initialize the microphone
 if 'linux' in platform:
+    # TODO#3 - Initialize the microphone
     pass
 else:
     source = sr.Microphone(sample_rate=16000)
