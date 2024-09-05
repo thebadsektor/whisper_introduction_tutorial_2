@@ -24,14 +24,9 @@ def index():
 
 # TODO#2 - Set up variables for audio capture and transcription
 
-if 'linux' in platform:
-    # TODO#3 - Initialize the microphone
-    pass
-else:
-    source = sr.Microphone(sample_rate=16000)
+# TODO#3 - Initialize the microphone
 
 # TODO#4 - Load the Whisper model
-
 
 # TODO#5 - Capture audio in real-time and send data to the queue
 
