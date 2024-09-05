@@ -20,14 +20,12 @@ socketio = SocketIO(app)
 def index():
     return render_template('index.html')
 
-# Variables
 data_queue = Queue()
 # TODO#1 - Initialize Variables for Transcription and Recorder
+# Variables
 # TODO#2 - Set Up and Initialize the Microphone
 # TODO#3 - Load the Whisper Model for Audio Transcription
 # TODO#4 - Set Recording and Phrase Timeout Parameters
-
-# Start the transcription process in a separate thread
 def start_transcription():
     # TODO#5 - Adjust Microphone Settings and Begin Listening
     while True:
@@ -44,7 +42,6 @@ def start_transcription():
             break
 
 # TODO#9 - Start the Transcription in a Separate Thread
-
 
 if __name__ == "__main__":
     socketio.run(app, host="0.0.0.0", port=5000)
